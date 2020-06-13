@@ -1,6 +1,7 @@
 package com.example.learnanimal
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -52,6 +53,13 @@ class MainActivity : AppCompatActivity() {
                 myView.textViewName.text = animal.name!!
                 myView.textViewDescription.text = animal.description!!
                 myView.image_animal.setImageResource(animal.image!!)
+                myView.image_animal.setOnClickListener {
+                    val intent = Intent(context,Animal_Details::class.java)
+                    intent.putExtra("name",animal.name!!)
+                    intent.putExtra("description",animal.description!!)
+                    intent.putExtra("image",animal.image!!)
+                    context!!.startActivity(intent)
+                }
                 return myView
             }else{
                 var inflater = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -59,9 +67,15 @@ class MainActivity : AppCompatActivity() {
                 myView.textViewName.text = animal.name!!
                 myView.textViewDescription.text = animal.description!!
                 myView.image_animal.setImageResource(animal.image!!)
+                myView.image_animal.setOnClickListener {
+                    val intent = Intent(context,Animal_Details::class.java)
+                    intent.putExtra("name",animal.name!!)
+                    intent.putExtra("description",animal.description!!)
+                    intent.putExtra("image",animal.image!!)
+                    context!!.startActivity(intent)
+                }
                 return myView
             }
-
 
         }
 
