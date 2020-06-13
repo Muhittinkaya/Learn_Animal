@@ -54,13 +54,14 @@ class MainActivity : AppCompatActivity() {
                 myView.textViewDescription.text = animal.description!!
                 myView.image_animal.setImageResource(animal.image!!)
                 myView.image_animal.setOnClickListener {
-                    val intent = Intent(context,Animal_Details::class.java)
+                    val intent = Intent(context,Animal_Details::class.java)//data passing with intent
                     intent.putExtra("name",animal.name!!)
                     intent.putExtra("description",animal.description!!)
                     intent.putExtra("image",animal.image!!)
                     context!!.startActivity(intent)
                 }
                 return myView
+
             }else{
                 var inflater = context!!.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
                 var myView = inflater.inflate(R.layout.animal_ticket,null)
